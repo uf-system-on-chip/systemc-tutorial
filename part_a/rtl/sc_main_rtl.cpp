@@ -9,11 +9,11 @@ int sc_main(int argc, char* argv[]) {
     sc_signal<uint32_t> data_sig;
     sc_signal<bool> write_en_sig;
 
-    // Instantiate Modules [cite: 35, 36]
+    // Instantiate Modules 
     Producer_RTL producer("producer");
     Consumer_RTL consumer("consumer");
 
-    // Port Mapping (Binding) [cite: 37]
+    // Port Mapping (Binding)
     producer.clk(clk);
     producer.addr(addr_sig);
     producer.data(data_sig);
@@ -25,9 +25,9 @@ int sc_main(int argc, char* argv[]) {
     consumer.write_en(write_en_sig);
 
     // Simulation
-    sc_start(); // Runs until producer thread finishes [cite: 80]
+    sc_start(); // Runs until producer thread finishes 
 
-    // Deliverable: Export image [cite: 18, 76]
+    // Deliverable: Export image
     consumer.save_image("rtl_output.ppm");
 
     return 0;

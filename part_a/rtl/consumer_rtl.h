@@ -9,7 +9,7 @@ SC_MODULE(Consumer_RTL) {
     sc_in<uint32_t> data;
     sc_in<bool> write_en;
 
-    std::vector<uint32_t> mem; // Memory buffer [cite: 17]
+    std::vector<uint32_t> mem; // Memory buffer
 
     void listen() {
         if (write_en.read()) {
@@ -35,7 +35,7 @@ SC_MODULE(Consumer_RTL) {
     }
 
     SC_CTOR(Consumer_RTL) {
-        mem.resize(780 * 610, 0); // Allocate for resolution [cite: 13, 17]
+        mem.resize(780 * 610, 0); // Allocate memory size
         SC_METHOD(listen);
         sensitive << clk.pos();
     }
