@@ -1,0 +1,10 @@
+# Add this lines to your bashrc file
+export SYSTEMC_HOME=/usr/local/systemc-2.3.3 
+export LD_LIBRARY_PATH=$SYSTEMC_HOME/lib-linux64:$LD_LIBRARY_PATH
+
+# Go to project root directory, build and run sim
+make clean 
+
+make 
+
+./soc_main 
